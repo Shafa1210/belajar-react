@@ -1,37 +1,41 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react' 
 
 function UserCard(props) {
-  const { name, email, street, city, ...rest } = props;
-  const [clicked, setClicked] = useState(false);
+const {name, email, street, city, ...rest} = props;
+const [clicked, setClicked] = useState(false);
 
-  console.log(Object.entries(rest));
+console.log(Object.entries(rest));
+
+  // Fungsi handler
+  function handleClick() {
+    setClicked(true);
+  }
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md">
-      <h2 className="text-lg font-bold text-gray-900 mb-2">{name}</h2>
-      <p className="text-sm text-gray-600">
-        <span className="font-semibold text-gray-800">Email:</span> {email}
+    <div className="bg-white p-6 rounded-lg shadow hover:shadow-md transition-shadow">
+      <h2 className="text-xl font-semibold text-gray-800 mb-2">{props.name}</h2>
+      <p className="text-gray-600">
+        <span className="font-medium">Email:</span> {props.email}
       </p>
-      <p className="text-sm text-gray-600 mb-3">
-        <span className="font-semibold text-gray-800">Address:</span> {street}, {city}
+      <p className="text-gray-600">
+        <span className="font-medium">Address:</span> {props.street}, {props.city}
       </p>
 
       {/* Menampilkan data tambahan dari rest */}
       {Object.entries(rest).map(([key, value]) => (
-        <p key={key} className="text-sm text-gray-600 mb-1">
-          <span className="font-semibold text-gray-800 capitalize">{key}:</span> {value}
+        <p key={key} className="text-gray-600">
+          <span className="font-medium capitalize">{key}:</span> {value}
         </p>
       ))}
 
-      {/* Bagian tombol yang harus diperbaiki/dipastikan ada onClick */}
       <button 
-        className={`${clicked ? "bg-green-600" : "bg-gray-700"} text-xs font-medium px-3 py-1.5 rounded text-white cursor-pointer`}
-        onClick={() => setClicked(!clicked)}
-      >
-        {clicked ? "Tombol sudah diklik" : "Silakan Klik"}
-      </button>
+      className={`${clicked ? "bg-special-green" : "bg-gray-01"} text-white p-2 rounded-md`}
+        onClick={() => setClicked(true)}
+        >
+    {clicked ? "Tombol sudah diklik" : "Silakan Klik"}
+    </button>
     </div>
   );
 }
 
-export default UserCard;
+export default UserCard
