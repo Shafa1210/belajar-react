@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import LabeledInput from "../Elements/LabeledInput";
 import Button from "../Elements/Button";
 
@@ -37,9 +38,9 @@ function FormSignUp() {
           </div>
           <div className="mb-3 text-xs text-gray-02">
             By continuing, you agree to our{" "}
-            <a href="#" className="text-primary">
+            <Link to="#" className="text-primary">
               terms of service
-            </a>
+            </Link>
             .
           </div>
           <Button>Sign up</Button>
@@ -85,9 +86,9 @@ function FormSignUp() {
 
       <div className="flex justify-center text-sm text-gray-02">
         Already have an account?{" "}
-        <a href="/login" className="text-primary font-bold ml-1">
+        <Link to="/login" className="text-primary font-bold ml-1">
           Sign in here
-        </a>
+        </Link>
       </div>
     </>
   );
